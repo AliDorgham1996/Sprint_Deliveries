@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1640874108 source:c:\users\ali hassan dorgham\onedrive\desktop\searchalgorithm\search.c
+	"search.h"
+
+1640449144 c:\users\ali hassan dorgham\onedrive\desktop\searchalgorithm\search.h
+	<stdint.h>
+
+1640449619 source:c:\users\ali hassan dorgham\onedrive\desktop\searchalgorithm\sort.c
+	"sort.h"
+
+1640446466 c:\users\ali hassan dorgham\onedrive\desktop\searchalgorithm\sort.h
+	<stdint.h>
+
+1640450892 source:c:\users\ali hassan dorgham\onedrive\desktop\searchalgorithm\task_3.c
+	"sort.h"
+	"search.h"
+	"Task_3.h"
+
+1640449283 c:\users\ali hassan dorgham\onedrive\desktop\searchalgorithm\task_3.h
+	<stdint.h>
+
+1640873250 source:c:\users\ali hassan dorgham\onedrive\desktop\searchalgorithm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint.h>
+	"Task_3.h"
+	<windows.h>
+

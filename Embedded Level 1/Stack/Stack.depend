@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1640875945 source:c:\users\ali hassan dorgham\onedrive\desktop\stack\compiler.c
+	"Compiler.h"
+	<stdio.h>
+	<string.h>
+
+1640861369 c:\users\ali hassan dorgham\onedrive\desktop\stack\compiler.h
+	<stdint.h>
+	"stack.h"
+
+1640861344 c:\users\ali hassan dorgham\onedrive\desktop\stack\stack.h
+	<stdint.h>
+	"stack.h"
+
+1640875508 source:c:\users\ali hassan dorgham\onedrive\desktop\stack\main.c
+	"main.h"
+
+1640875925 source:c:\users\ali hassan dorgham\onedrive\desktop\stack\stack.c
+	"stack.h"
+	<stdio.h>
+
+1640875942 c:\users\ali hassan dorgham\onedrive\desktop\stack\main.h
+	<stdio.h>
+	<windows.h>
+	"Compiler.h"
+

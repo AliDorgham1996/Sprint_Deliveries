@@ -1,0 +1,145 @@
+# depslib dependency file v1.0
+1640706490 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\paymentsystem.c
+	"structure.h"
+	"Terminal.h"
+	"Card.h"
+
+1640697155 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\card.c
+	"Card.h"
+
+1640580016 c:\users\ali hassan dorgham\onedrive\desktop\payment system\card.h
+	"structure.h"
+
+1640707328 c:\users\ali hassan dorgham\onedrive\desktop\payment system\structure.h
+	<stdint.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<windows.h>
+
+1640708793 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\server.c
+	"Server.h"
+	"Transaction.h"
+
+1640647054 c:\users\ali hassan dorgham\onedrive\desktop\payment system\server.h
+	"structure.h"
+
+1640710954 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\transaction.c
+	"structure.h"
+	"Transaction.h"
+
+1640709794 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\main.c
+	"PaymentSystem.h"
+	"Transaction.h"
+
+1640687197 c:\users\ali hassan dorgham\onedrive\desktop\payment system\terminal.h
+	"structure.h"
+	"Card.h"
+
+1640707465 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\terminal.c
+	"Terminal.h"
+	"Server.h"
+
+1640709800 c:\users\ali hassan dorgham\onedrive\desktop\payment system\paymentsystem.h
+	"structure.h"
+
+1640709721 c:\users\ali hassan dorgham\onedrive\desktop\payment system\transaction.h
+	"structure.h"
+
+1640697155 source:d:\sprints\tasks\payment system\card.c
+	"Card.h"
+
+1640580016 d:\sprints\tasks\payment system\card.h
+	"structure.h"
+
+1640707328 d:\sprints\tasks\payment system\structure.h
+	<stdint.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<windows.h>
+
+1640709794 source:d:\sprints\tasks\payment system\main.c
+	"PaymentSystem.h"
+	"Transaction.h"
+
+1640709800 d:\sprints\tasks\payment system\paymentsystem.h
+	"structure.h"
+
+1640709721 d:\sprints\tasks\payment system\transaction.h
+	"structure.h"
+
+1640728540 source:d:\sprints\tasks\payment system\paymentsystem.c
+	"structure.h"
+	"Terminal.h"
+	"Card.h"
+
+1640687197 d:\sprints\tasks\payment system\terminal.h
+	"structure.h"
+	"Card.h"
+
+1640708793 source:d:\sprints\tasks\payment system\server.c
+	"Server.h"
+	"Transaction.h"
+
+1640647054 d:\sprints\tasks\payment system\server.h
+	"structure.h"
+
+1640707465 source:d:\sprints\tasks\payment system\terminal.c
+	"Terminal.h"
+	"Server.h"
+
+1640711533 source:d:\sprints\tasks\payment system\transaction.c
+	"structure.h"
+	"Transaction.h"
+
+1640697155 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\card.c
+	"Card.h"
+
+1640580016 c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\card.h
+	"structure.h"
+
+1640707328 c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\structure.h
+	<stdint.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<windows.h>
+
+1640877073 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\main.c
+	"PaymentSystem.h"
+	"Transaction.h"
+
+1640877047 c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\paymentsystem.h
+	"structure.h"
+
+1640709721 c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\transaction.h
+	"structure.h"
+
+1640884729 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\server.c
+	"Server.h"
+	"Transaction.h"
+
+1640647054 c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\server.h
+	"structure.h"
+
+1640878498 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\terminal.c
+	"Terminal.h"
+	"Server.h"
+
+1640687197 c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\terminal.h
+	"structure.h"
+	"Card.h"
+
+1640884919 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\transaction.c
+	"structure.h"
+	"Transaction.h"
+
+1640877030 source:c:\users\ali hassan dorgham\onedrive\desktop\payment system\sprints\paymentsystem.c
+	"structure.h"
+	"Terminal.h"
+	"Card.h"
+
