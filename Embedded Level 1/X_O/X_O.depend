@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1640640624 source:c:\users\ali hassan dorgham\onedrive\desktop\x_o\config.c
+	<stdio.h>
+	<windows.h>
+	"X_O_Enums.h"
+	"XO_Config.h"
+
+1640320422 source:c:\users\ali hassan dorgham\onedrive\desktop\x_o\greeting.c
+	<stdio.h>
+	<string.h>
+	"X_O_Enums.h"
+
+1640894888 source:c:\users\ali hassan dorgham\onedrive\desktop\x_o\xo_calculations.c
+	"X_O_Enums.h"
+	<string.h>
+	"XO_Config.h"
+
+1640893080 source:c:\users\ali hassan dorgham\onedrive\desktop\x_o\xo_table.c
+	<stdio.h>
+	<windows.h>
+	"XO_Config.h"
+
+1640630278 source:c:\users\ali hassan dorgham\onedrive\desktop\x_o\choose.c
+	<stdio.h>
+	<windows.h>
+
+1640599049 source:c:\users\ali hassan dorgham\onedrive\desktop\x_o\main.c
+	"XO.h"
+
+1640894851 c:\users\ali hassan dorgham\onedrive\desktop\x_o\x_o_enums.h
+	<stdint.h>
+
+1640623290 c:\users\ali hassan dorgham\onedrive\desktop\x_o\xo_config.h
+	"X_O_Enums.h"
+
+1640712165 c:\users\ali hassan dorgham\onedrive\desktop\x_o\xo.h
+
+1640893191 source:c:\users\ali hassan dorgham\onedrive\desktop\x_o\xo.c
+	<stdio.h>
+	<windows.h>
+	"X_O_Enums.h"
+	"XO_Config.h"
+
+1640630278 source:d:\sprints\tasks\x_o\choose.c
+	<stdio.h>
+	<windows.h>
+
+1640640624 source:d:\sprints\tasks\x_o\config.c
+	<stdio.h>
+	<windows.h>
+	"X_O_Enums.h"
+	"XO_Config.h"
+
+1640857141 d:\sprints\tasks\x_o\x_o_enums.h
+	<stdint.h>
+
+1640623290 d:\sprints\tasks\x_o\xo_config.h
+	"X_O_Enums.h"
+
+1640320422 source:d:\sprints\tasks\x_o\greeting.c
+	<stdio.h>
+	<string.h>
+	"X_O_Enums.h"
+
+1640599049 source:d:\sprints\tasks\x_o\main.c
+	"XO.h"
+
+1640712165 d:\sprints\tasks\x_o\xo.h
+
+1640726419 source:d:\sprints\tasks\x_o\xo.c
+	<stdio.h>
+	<windows.h>
+	"X_O_Enums.h"
+	"XO_Config.h"
+
+1640858120 source:d:\sprints\tasks\x_o\xo_calculations.c
+	"X_O_Enums.h"
+	<string.h>
+	"XO_Config.h"
+
+1640640288 source:d:\sprints\tasks\x_o\xo_table.c
+	<stdio.h>
+	<windows.h>
+	"XO_Config.h"
+
