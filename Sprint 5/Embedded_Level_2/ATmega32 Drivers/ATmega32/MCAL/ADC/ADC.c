@@ -12,6 +12,6 @@ uint16_t 	ADC_Read	(ADC_Channel_t channel)
 {
 	ADC.Selections.channel = channel;
 	ADC.Control.start_conv = 1;
-	while(ADC.Control.start_conv == 1);
+	while(ADC.Control.start_conv == 0);
 	return ADC.Data;
 }

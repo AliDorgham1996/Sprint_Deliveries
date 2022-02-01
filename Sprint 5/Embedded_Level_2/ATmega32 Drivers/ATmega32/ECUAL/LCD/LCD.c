@@ -5,50 +5,19 @@
 static void LCD_GoToXY(LCD_Row_t row, LCD_Col_t col);
 static void LCD_sendData(uint8_t byData);
 static void LCD_sendInst(uint8_t byInst);
-static void LCD_Latch(void);
 
-static void LCD_Latch(void)
-{
-	Dio_ChannelWrite(LCD_EN_PIN, DIO_EN_W_High);
-	Dio_ChannelWrite(LCD_EN_PIN, DIO_EN_W_Low);
-}
-
-static void LCD_sendInst(uint8_t Inst)
-{
-	Dio_ChannelWrite(LCD_RS_PIN, DIO_EN_W_Low);
-	Dio_ChannelWrite(LCD_RW_PIN, DIO_EN_W_Low);
-	/* upload most 4 bits and then latch */
-	LCD_DATA_REG.HN = (Inst>>4);
-	LCD_Latch();
-	/* upload least 4 bits and then latch */
-	LCD_DATA_REG.HN = Inst;
-	LCD_Latch();
-	/* delay 40 us */
-	Delay_Us(40);
-}
-
-void LCD_init(void)
-{
-	Dio_GroupMode(LCD_DATA_PORT, LCD_DATA_MSK, DIO_EN_M_Output);
-	Dio_ChannelMode(LCD_RW_PIN, DIO_EN_M_Output);
-	Dio_ChannelMode(LCD_RS_PIN, DIO_EN_M_Output);
-	Dio_ChannelMode(LCD_EN_PIN, DIO_EN_M_Output);
-	
-	Delay_Ms(100);
-	LCD_sendInst(LCD_CMD_FUN_SET_4BIT);	/* Required: to set 4Bit operation */
-	LCD_sendInst(LCD_CMD_CFG);			/* Full CFG */
-	LCD_sendInst(LCD_CMD_DISP_ON);
-	LCD_Clear();
-}
-
-void LCD_Clear(void)
-{
-	LCD_sendInst(LCD_CMD_CLEAR);
-	Delay_Ms(5);
-}
+#if (LCD_HARDWARE == LCD_4x16_DIO)
+	static void LCD_Latch(void);
+	static void LCD_Latch(void)
+	{
+		Dio_ChannelWrite(LCD_EN_PIN, DIO_EN_W_High);
+		Dio_ChannelWrite(LCD_EN_PIN, DIO_EN_W_Low);
+	}
+#endif /* LCD_HARDWARE */
 
 static void LCD_sendData(uint8_t Data)
 {
+#if (LCD_HARDWARE == LCD_4x16_DIO)
 	Dio_ChannelWrite(LCD_RS_PIN, DIO_EN_W_High);
 	Dio_ChannelWrite(LCD_RW_PIN, DIO_EN_W_Low);
 	/* upload most 4 bits and then latch */
@@ -57,8 +26,52 @@ static void LCD_sendData(uint8_t Data)
 	/* upload least 4 bits and then latch */
 	LCD_DATA_REG.HN = Data;
 	LCD_Latch();
+#elif (LCD_HARDWARE == LCD_4x16_I2C)
+	#error "Include I2C Driver Please"
+#endif /* LCD_HARDWARE */
 	/* delay 40 us */
 	Delay_Us(40);
+}
+static void LCD_sendInst(uint8_t Inst)
+{
+#if (LCD_HARDWARE == LCD_4x16_DIO)
+	Dio_ChannelWrite(LCD_RS_PIN, DIO_EN_W_Low);
+	Dio_ChannelWrite(LCD_RW_PIN, DIO_EN_W_Low);
+	/* upload most 4 bits and then latch */
+	LCD_DATA_REG.HN = (Inst>>4);
+	LCD_Latch();
+	/* upload least 4 bits and then latch */
+	LCD_DATA_REG.HN = Inst;
+	LCD_Latch();
+#elif (LCD_HARDWARE == LCD_4x16_I2C)
+	#error "Include I2C Driver Please"
+#endif /* LCD_HARDWARE */
+	/* delay 40 us */
+	Delay_Us(40);
+}
+
+void LCD_init(void)
+{
+#if (LCD_HARDWARE == LCD_4x16_DIO)
+	Dio_GroupMode(LCD_DATA_PORT, LCD_DATA_MSK, DIO_EN_M_Output);
+	Dio_ChannelMode(LCD_RW_PIN, DIO_EN_M_Output);
+	Dio_ChannelMode(LCD_RS_PIN, DIO_EN_M_Output);
+	Dio_ChannelMode(LCD_EN_PIN, DIO_EN_M_Output);
+#elif (LCD_HARDWARE == LCD_4x16_I2C)
+	#error "Include I2C Driver Please"
+#endif /* LCD_HARDWARE */
+
+	Delay_Ms(100);
+	LCD_sendInst(LCD_CMD_FUN_SET_4BIT);
+	LCD_sendInst(LCD_CMD_CFG);			
+	LCD_sendInst(LCD_CMD_DISP_ON);
+	LCD_Clear();
+}
+
+void LCD_Clear(void)
+{
+	LCD_sendInst(LCD_CMD_CLEAR);
+	Delay_Ms(5);
 }
 
 void LCD_Display_Char(uint8_t uint8_tChar)

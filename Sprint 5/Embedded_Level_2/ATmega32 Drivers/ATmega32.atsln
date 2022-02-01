@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Atmel Studio Solution File, Format Version 11.00
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "ATmega32", "ATmega32\ATmega32.cproj", "{216E1631-C34D-4D8C-A88E-22B7CB142404}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{216E1631-C34D-4D8C-A88E-22B7CB142404}.Debug|AVR.ActiveCfg = Debug|AVR
+		{216E1631-C34D-4D8C-A88E-22B7CB142404}.Debug|AVR.Build.0 = Debug|AVR
+		{216E1631-C34D-4D8C-A88E-22B7CB142404}.Release|AVR.ActiveCfg = Release|AVR
+		{216E1631-C34D-4D8C-A88E-22B7CB142404}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
