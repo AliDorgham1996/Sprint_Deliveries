@@ -8,7 +8,6 @@
 _S void			I2C_Wait		(void);
 _S void			I2C_Wait		(void)//done
 {
-	I2C.Control.TWCR_Reg |= (1<<TWINT);
 	while((I2C.Control.TWCR_Bits.interrupt_flag == 0));
 }
 void            I2C_init		(uint32_t Speed)//done
@@ -58,19 +57,21 @@ void			I2C_Stop		(void)//done
 I2C_Error_t		I2C_Listen      (void)//done
 {
 	I2C_Error_t return_value = I2C_EN_Invalid;
-	I2C.Control.TWCR_Reg = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
-	I2C_Wait();
-	if(STATUS_CODE_SLAVE_R)
+	while(1)
 	{
-		return_value = I2C_EN_SlaveTransmit;
-	}
-	else if(STATUS_CODE_SLAVE_W)
-	{
-		return_value = I2C_EN_SlaveReceive;
-	}
-	else
-	{
-		return_value = I2C_EN_Invalid;
+		I2C.Control.TWCR_Reg = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
+		I2C_Wait();
+		if(STATUS_CODE_SLAVE_W)
+		{
+			return_value = I2C_EN_SlaveReceive;
+			break;
+		}
+		else if(STATUS_CODE_SLAVE_R)
+		{
+			return_value = I2C_EN_SlaveTransmit;
+			break;
+		}
+		else{/*MISRA C*/}
 	}
 	return return_value;
 }
@@ -79,14 +80,6 @@ I2C_Error_t		I2C_Write		(uint8_t  Data, I2C_StatusCode_t Code)//done
 	I2C_Error_t return_value = I2C_EN_Invalid;
 	I2C.Data = Data;
 	I2C.Control.TWCR_Reg = (1<<TWINT)|(1<<TWEN);
-	if(Code == I2C_ST_DATA_ACK)//for slave transmit
-	{
-		I2C.Control.TWCR_Bits.acknowledge = ENABLE;
-	}
-	else
-	{
-		I2C.Control.TWCR_Bits.acknowledge = DISABLE;
-	}
 	I2C_Wait();
 	if(I2C.Status.status_code == Code)
 	{
@@ -107,7 +100,7 @@ I2C_Error_t		I2C_Read		(uint8_t* Data, I2C_StatusCode_t Code)//done
 	I2C_Error_t return_value = I2C_EN_valid;
 	if(Data != NULL)
 	{
-		I2C.Control.TWCR_Reg = (1<<TWEN)|(1<<TWINT);
+		I2C.Control.TWCR_Reg = (1<<TWEN)|(1<<TWINT)|(1<<TWEA);
 		if(STATUS_CODE_ENABLE_ACK)
 		{
 			I2C.Control.TWCR_Bits.acknowledge = ENABLE;
@@ -117,16 +110,11 @@ I2C_Error_t		I2C_Read		(uint8_t* Data, I2C_StatusCode_t Code)//done
 			I2C.Control.TWCR_Bits.acknowledge = DISABLE;
 		}
 		I2C_Wait();
-		//LCD_Display_NumXY(2,1, I2C.Control.TWCR_Bits.acknowledge);
-		//LCD_Display_StringXY(1,1, "OK");
-		
-		LCD_Display_CharXY(2,1, I2C.Status.status_code);
-		//if(I2C.Status.status_code == Code)
+		if(I2C.Status.status_code == Code)
 		{
 			*Data = I2C.Data;
-			LCD_Display_NumXY(2,1, *Data);
 		}
-		//else
+		else
 		{
 			return_value = I2C_EN_InvalidCode;
 		}

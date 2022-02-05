@@ -23,4 +23,5 @@ I2C_Error_t		I2C_Listen          (void);
 I2C_Error_t		I2C_Write			(uint8_t  Data, I2C_StatusCode_t Code);
 I2C_Error_t		I2C_Read			(uint8_t* Data, I2C_StatusCode_t Code);
 
+
 #endif /* I2C_H_ */
