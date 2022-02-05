@@ -13,7 +13,10 @@ APP/I2C_Driver.d APP/I2C_Driver.o: ../APP/I2C_Driver.c \
  ../Library/../Library/../Library/../Library/Constants.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
  ../Library/../Library/../Library/Constants.h \
- ../APP/../Library/System_Delays/Delays.h
+ ../APP/../Library/Registers.h ../APP/../Library/../Library/Types_Defs.h \
+ ../APP/../Library/../Library/Constants.h \
+ ../APP/../Library/System_Delays/Delays.h ../APP/../ECUAL/LCD/LCD.h \
+ ../APP/../ECUAL/LCD/LCD_Cfg.h ../Library/../MCAL/I2C/I2C.h
 
 ../APP/../MCAL/I2C/I2C.h:
 
@@ -45,4 +48,16 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 ../Library/../Library/../Library/Constants.h:
 
+../APP/../Library/Registers.h:
+
+../APP/../Library/../Library/Types_Defs.h:
+
+../APP/../Library/../Library/Constants.h:
+
 ../APP/../Library/System_Delays/Delays.h:
+
+../APP/../ECUAL/LCD/LCD.h:
+
+../APP/../ECUAL/LCD/LCD_Cfg.h:
+
+../Library/../MCAL/I2C/I2C.h:

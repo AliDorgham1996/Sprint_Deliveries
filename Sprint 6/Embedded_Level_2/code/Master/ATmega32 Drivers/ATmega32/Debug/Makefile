@@ -71,7 +71,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../APP/I2C_Driver.c \
-../APP/I2C_EEPROM.c \
+../APP/I2C_EEPROMTask.c \
 ../APP/SPI_UART.c \
 ../APP/UART_Driver.c \
 ../APP/Traffic_System.c \
@@ -124,7 +124,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 APP/I2C_Driver.o \
-APP/I2C_EEPROM.o \
+APP/I2C_EEPROMTask.o \
 APP/SPI_UART.o \
 APP/UART_Driver.o \
 APP/Traffic_System.o \
@@ -170,7 +170,7 @@ Services/MQTT/MQTT.o
 
 OBJS_AS_ARGS +=  \
 APP/I2C_Driver.o \
-APP/I2C_EEPROM.o \
+APP/I2C_EEPROMTask.o \
 APP/SPI_UART.o \
 APP/UART_Driver.o \
 APP/Traffic_System.o \
@@ -216,7 +216,7 @@ Services/MQTT/MQTT.o
 
 C_DEPS +=  \
 APP/I2C_Driver.d \
-APP/I2C_EEPROM.d \
+APP/I2C_EEPROMTask.d \
 APP/SPI_UART.d \
 APP/UART_Driver.d \
 APP/Traffic_System.d \
@@ -262,7 +262,7 @@ Services/MQTT/MQTT.d
 
 C_DEPS_AS_ARGS +=  \
 APP/I2C_Driver.d \
-APP/I2C_EEPROM.d \
+APP/I2C_EEPROMTask.d \
 APP/SPI_UART.d \
 APP/UART_Driver.d \
 APP/Traffic_System.d \
@@ -327,7 +327,7 @@ APP/I2C_Driver.o: ../APP/I2C_Driver.c
 	@echo Finished building: $<
 	
 
-APP/I2C_EEPROM.o: ../APP/I2C_EEPROM.c
+APP/I2C_EEPROMTask.o: ../APP/I2C_EEPROMTask.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -I"../Library" -I"../Library/System_Delays" -I"../MCAL/DIO" -I"../MCAL/TIMER" -I"../ECUAL/Button" -I"../ECUAL/LED" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../ECUAL/LCD" -I"../ECUAL/Keypad" -I"../MCAL/Ext_Int" -I"../MCAL/SPI" -I"../MCAL/I2C" -I"../MCAL/UART" -I"../Services/Circular_Buffer" -I"../MCAL/WatchDog" -I"../MCAL/Internal_EEPROM" -I"../ECUAL/EEPROM/I2C_EEPROM" -I"../ECUAL/EEPROM/SPI_EEPROM" -I"../Services/MQTT" -I"../Services/FreeRTOS/includes" -I"../Services/FreeRTOS/sourses"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -7,7 +7,7 @@
 #define Task_I2C_Driver			5
 #define Task_I2C_EEPROM			6
 
-#define Running_Task  Task_I2C_Driver
+#define Running_Task            Task_I2C_Driver
 
 int main(void)
 {
@@ -22,6 +22,8 @@ int main(void)
 #elif (Running_Task == Task_I2C_Driver)
 	I2C_Driver();
 #elif (Running_Task == Task_I2C_EEPROM)
-	I2C_EEPROM();
+	I2C_EEPROMTask();
+#else 
+	while(1);
 #endif /* Task */
 }

@@ -6,7 +6,7 @@ void	 Traffic_System	(void);
 void	 SPI_Driver		(void);
 void	 SPI_UART		(void);
 void	 I2C_Driver		(void);
-void	 I2C_EEPROM		(void);
+void	 I2C_EEPROMTask	(void);
 
 
 #endif /* SPRINT_6_H_ */

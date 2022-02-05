@@ -94,6 +94,7 @@ _S void TRF_Next_State(uint8_t* arr)
 	{
 		TRF = TRF_EN_Test;
 	}
+	else{/*MISRA C*/}
 }
 _S void Console_Replay(LED_t LED_Num)
 {

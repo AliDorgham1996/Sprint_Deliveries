@@ -6,7 +6,7 @@
 
 #define UART_R_Buffer_Size   10U
 #define UART_T_Buffer_Size   10U
-#define UART_TIME_OUT        5000UL
+#define UART_TIME_OUT        0xFFFFFFUL
 
 typedef union
 {

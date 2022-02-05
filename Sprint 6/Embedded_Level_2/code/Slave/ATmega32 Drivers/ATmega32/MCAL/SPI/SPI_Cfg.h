@@ -4,9 +4,10 @@
 #include <stdint.h>
 #include "../Library/Constants.h"
 #include "../Library/Types_Defs.h"
+#include "../Library/Configurations.h"
 
-#define SPI_DUMMY			0x00
-#define SPI_TIMEOUT         5000UL
+#define SPI_DUMMY		    0xFF
+#define SPI_TIMEOUT         0xFFFF
 
 
 typedef enum

@@ -16,7 +16,8 @@ ECUAL/EEPROM/SPI_EEPROM/SPI_EEPROM.d ECUAL/EEPROM/SPI_EEPROM/SPI_EEPROM.o: \
  ../Library/../Library/../Library/../Library/Bit_Math.h \
  ../Library/../Library/../Library/../Library/Constants.h \
  ../Library/../Library/../Library/Constants.h \
- ../Library/../MCAL/DIO/Dio.h ../Library/../MCAL/DIO/Dio_Cfg.h
+ ../Library/../Library/Configurations.h ../Library/../MCAL/DIO/Dio.h \
+ ../Library/../MCAL/DIO/Dio_Cfg.h
 
 ../Library/../ECUAL/EEPROM/SPI_EEPROM/SPI_EEPROM.h:
 
@@ -51,6 +52,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Library/../Library/../Library/../Library/Constants.h:
 
 ../Library/../Library/../Library/Constants.h:
+
+../Library/../Library/Configurations.h:
 
 ../Library/../MCAL/DIO/Dio.h:
 

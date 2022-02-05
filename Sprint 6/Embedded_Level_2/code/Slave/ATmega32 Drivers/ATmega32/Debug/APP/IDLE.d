@@ -1,0 +1,1 @@
+APP/IDLE.d APP/IDLE.o: ../APP/IDLE.c

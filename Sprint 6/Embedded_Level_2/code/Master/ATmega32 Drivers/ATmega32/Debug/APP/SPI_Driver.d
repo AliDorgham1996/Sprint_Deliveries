@@ -14,7 +14,8 @@ APP/SPI_Driver.d APP/SPI_Driver.o: ../APP/SPI_Driver.c \
  ../Library/../Library/../Library/../Library/Bit_Math.h \
  ../Library/../Library/../Library/../Library/Constants.h \
  ../Library/../Library/../Library/Constants.h \
- ../APP/../Library/Registers.h ../APP/../Library/../Library/Types_Defs.h \
+ ../Library/../Library/Configurations.h ../APP/../Library/Registers.h \
+ ../APP/../Library/../Library/Types_Defs.h \
  ../APP/../Library/../Library/Constants.h \
  ../APP/../Library/System_Delays/Delays.h
 
@@ -49,6 +50,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Library/../Library/../Library/../Library/Constants.h:
 
 ../Library/../Library/../Library/Constants.h:
+
+../Library/../Library/Configurations.h:
 
 ../APP/../Library/Registers.h:
 

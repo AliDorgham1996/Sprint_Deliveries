@@ -13,6 +13,7 @@ void UART_Driver(void)
 	{
 		Uart_ReceiveStringPooling(arr, UART_R_Buffer_Size, '\r');
 		Uart_SendStringAsynch(arr);
+		while(UART_EN_BUSY_Transmit == Uart_SendPooling('\r'));
 		clean_arr(arr);
 	}
 }

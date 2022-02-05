@@ -151,19 +151,13 @@
     <Compile Include="APP\I2C_Driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="APP\I2C_EEPROM.c">
+    <Compile Include="APP\IDLE.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="APP\SPI_UART.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="APP\Sprint_6.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="APP\UART_Driver.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="APP\Traffic_System.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="APP\SPI_Driver.c">

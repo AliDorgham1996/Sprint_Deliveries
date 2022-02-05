@@ -14,6 +14,7 @@ MCAL/SPI/SPI.d MCAL/SPI/SPI.o: ../MCAL/SPI/SPI.c \
  ../Library/../Library/../Library/../Library/Bit_Math.h \
  ../Library/../Library/../Library/../Library/Constants.h \
  ../Library/../Library/../Library/Constants.h \
+ ../Library/../Library/Configurations.h \
  ../Library/../MCAL/SPI/SPI_Private.h \
  ../Library/../Library/PrivateMacros.h ../Library/../Library/Registers.h \
  ../Library/../Library/../Library/Types_Defs.h \
@@ -50,6 +51,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Library/../Library/../Library/../Library/Constants.h:
 
 ../Library/../Library/../Library/Constants.h:
+
+../Library/../Library/Configurations.h:
 
 ../Library/../MCAL/SPI/SPI_Private.h:
 

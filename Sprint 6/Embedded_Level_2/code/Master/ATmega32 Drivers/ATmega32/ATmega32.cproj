@@ -151,7 +151,7 @@
     <Compile Include="APP\I2C_Driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="APP\I2C_EEPROM.c">
+    <Compile Include="APP\I2C_EEPROMTask.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="APP\SPI_UART.c">

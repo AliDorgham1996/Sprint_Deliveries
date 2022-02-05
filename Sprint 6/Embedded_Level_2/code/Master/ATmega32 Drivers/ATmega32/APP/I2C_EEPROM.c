@@ -2,22 +2,33 @@
 #include "../ECUAL/EEPROM/I2C_EEPROM/I2C_EEPROM.h"
 #include "../Library/System_Delays/Delays.h"
 #include "../Library/Constants.h"
-
+#include <math.h>
 #include <avr/interrupt.h>
 
 #define MAX_SIZE_CONSTRAIN    255U
 
 _S void clean_arr (uint8_t* arr);
 _S void Console_Replay(void);
+_S void TRF_Next_State(uint8_t* arr);
 
 typedef enum
 {
 	EEUART_init,
 	EEUART_Write,
-	EEUART_Read
+	EEUART_Read,
+	EEUART_Address,
+	EEUART_Data
 }EEUART_t;
 
-_S EEUART_t EPR_U = EEUART_init;
+#define WRITTING_EE   0
+#define READING_EE    1
+#define NO_OPER_EE    2
+
+_S EEUART_t  EPR_U = EEUART_init;
+_S uint16_t Address = 0x0000;
+_S uint8_t  Data = 0;
+_S uint8_t  AddressFlag = DISABLE; 
+_S uint8_t  OperationFlag = NO_OPER_EE;
 
 void I2C_EEPROM(void)
 {
@@ -34,7 +45,14 @@ void I2C_EEPROM(void)
 			case EEUART_init:
 			{
 				Uart_SendStringPooling("Enter  : ");
-				result = Uart_ReceiveStringPooling(arr, MAX_SIZE_CONSTRAIN, '\r');
+				if(AddressFlag == ENABLE)
+				{
+					result = Uart_ReceiveStringPooling(arr, 5, '\r');
+				}
+				else
+				{
+					result = Uart_ReceiveStringPooling(arr, MAX_SIZE_CONSTRAIN, '\r');
+				}
 				if(result == UART_EN_END_BY_TERM)
 				{
 					TRF_Next_State(arr);
@@ -47,9 +65,19 @@ void I2C_EEPROM(void)
 			}break;
 			case EEUART_Write:
 			{
-				Console_Replay();
+				Uart_SendStringPooling("consol : ");
+				AddressFlag = ENABLE;
 			}break;
 			case EEUART_Read:
+			{
+				Uart_SendStringPooling("consol : ");
+				AddressFlag = ENABLE;
+			}break;
+			case EEUART_Address:
+			{
+				Console_Replay();
+			}break;
+			case EEUART_Data:
 			{
 				Console_Replay();
 			}break;
@@ -72,4 +100,32 @@ _S void Console_Replay(void)
 	Uart_SendStringPooling("OK");
 	Uart_SendPooling('\r');
 	EPR_U = EEUART_init;
+}
+_S void TRF_Next_State(uint8_t* arr)
+{
+	if(AddressFlag == ENABLE)
+	{
+		Address = atoi(arr);
+		if(EPR_U ==  EEUART_Write)
+		{
+			I2C_EEPROM_Write(Address, Data);
+		}
+		else if(EPR_U ==  EEUART_Read)
+		{
+			I2C_EEPROM_Read(Address, &Data);
+		}
+		else{/*MISRA C*/}
+	}
+	else
+	{
+		if(0 == strcmp(arr, "WRITE"))
+		{
+			EPR_U =  EEUART_Write;
+		}
+		else if(0 == strcmp(arr, "READ"))
+		{
+			EPR_U = EEUART_Read;
+		}
+		else{/*MISRA C*/}
+	}
 }

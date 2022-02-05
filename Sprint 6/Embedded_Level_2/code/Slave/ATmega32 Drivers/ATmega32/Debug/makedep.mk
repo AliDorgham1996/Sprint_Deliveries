@@ -4,13 +4,9 @@
 
 APP\I2C_Driver.c
 
-APP\I2C_EEPROM.c
+APP\IDLE.c
 
 APP\SPI_UART.c
-
-APP\UART_Driver.c
-
-APP\Traffic_System.c
 
 APP\SPI_Driver.c
 

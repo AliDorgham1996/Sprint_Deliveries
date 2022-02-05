@@ -4,7 +4,7 @@
 #define LCD_4x16_DIO    0
 #define LCD_4x16_I2C    1
 
-#define LCD_HARDWARE    LCD_4x16_I2C
+#define LCD_HARDWARE    LCD_4x16_DIO
 
 typedef enum
 {

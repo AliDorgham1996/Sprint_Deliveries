@@ -19,45 +19,27 @@ void			SPI_Init			(SPI_t Type)
 	SPI.Control.Type       = Type;
 	SPI.Control.Enable     = ENABLE;
 }
-uint8_t		    SPI_Transceive	    (uint8_t Data)
+void		    SPI_Send	        (uint8_t Data)
 {
-	uint32_t timeout = 0;
 	SPI.Data = Data;
-	while((SPI.Status.interrupt_flag == 0) && (timeout <= SPI_TIMEOUT))
-	{
-		timeout++;
-	}
-	
-	if(SPI.Status.interrupt_flag == 1)
-	{
-		return SPI_DUMMY;
-	}
-	else{/*MISRA C*/}
+	while((SPI.Status.interrupt_flag == 0));
+}
+uint8_t		    SPI_Receive			(void)
+{
+	while((SPI.Status.interrupt_flag == 0));
 	return SPI.Data;
 }
 SPI_Error_t		SPI_SendString	    (uint8_t* Data)
 {
 	SPI_Error_t return_value = SPI_EN_valid;
-	uint32_t timeout = 0;
 	uint32_t index   = 0;
-	uint32_t size = strlen(Data);
 	if(Data != NULL)
 	{
-		for(index = 0; index < size; index++)
+		for(index = 0; Data[index] != '\0' ; index++)
 		{
-			SPI.Data = Data[index];
-			while((SPI.Status.interrupt_flag == 0) && (timeout <= SPI_TIMEOUT))
-			{
-				timeout++;
-			}
-			
-			if(SPI.Status.interrupt_flag == 1)
-			{
-				return_value = SPI_EN_Invalid_TIMEOUT;
-				break;
-			}
-			else{/*MISRA C*/}
+			SPI_Send(Data[index]);
 		}
+		SPI_Send('\0');
 	}
 	else
 	{
@@ -65,29 +47,18 @@ SPI_Error_t		SPI_SendString	    (uint8_t* Data)
 	}
 	return return_value;
 }
-SPI_Error_t	   SPI_RecieveString		(uint8_t* Data, uint32_t size)
+SPI_Error_t	   SPI_RecieveString		(uint8_t* Data, uint8_t term)
 {
 	SPI_Error_t return_value = SPI_EN_valid;
-	uint32_t timeout = 0;
 	uint32_t index   = 0;
 	if(Data != NULL)
 	{
-		for(index = 0; index < size; index++)
+		for(index = 0; ; index++)
 		{
-			SPI.Data = SPI_DUMMY;
-			while((SPI.Status.interrupt_flag == 0) && (timeout <= SPI_TIMEOUT))
+			Data[index] = SPI_Receive();
+			if(Data[index] == term)
 			{
-				timeout++;
-			}
-			
-			if(SPI.Status.interrupt_flag == 1)
-			{
-				return_value = SPI_EN_Invalid_TIMEOUT;
 				break;
-			}
-			else			
-			{
-				SPI.Data = Data[index];
 			}
 		}
 	}

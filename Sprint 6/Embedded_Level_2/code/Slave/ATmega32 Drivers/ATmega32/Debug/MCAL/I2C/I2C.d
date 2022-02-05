@@ -15,7 +15,11 @@ MCAL/I2C/I2C.d MCAL/I2C/I2C.o: ../MCAL/I2C/I2C.c \
  ../Library/../Library/../Library/Constants.h \
  ../Library/../MCAL/I2C/I2C_Private.h \
  ../Library/../Library/PrivateMacros.h \
- ../Library/../Library/Configurations.h ../Library/../Library/Constants.h
+ ../Library/../Library/Configurations.h ../Library/../Library/Constants.h \
+ ../ECUAL/Button/../LCD/LCD.h ../ECUAL/Button/../LCD/LCD_Cfg.h \
+ ../Library/../MCAL/DIO/Dio.h ../Library/../MCAL/DIO/Dio_Cfg.h \
+ ../Library/../Library/Registers.h \
+ ../Library/../Library/../Library/Types_Defs.h
 
 ../Library/../MCAL/I2C/I2C.h:
 
@@ -54,3 +58,15 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../Library/../Library/Configurations.h:
 
 ../Library/../Library/Constants.h:
+
+../ECUAL/Button/../LCD/LCD.h:
+
+../ECUAL/Button/../LCD/LCD_Cfg.h:
+
+../Library/../MCAL/DIO/Dio.h:
+
+../Library/../MCAL/DIO/Dio_Cfg.h:
+
+../Library/../Library/Registers.h:
+
+../Library/../Library/../Library/Types_Defs.h:

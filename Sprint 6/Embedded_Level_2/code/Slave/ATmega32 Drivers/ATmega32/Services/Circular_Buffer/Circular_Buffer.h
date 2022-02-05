@@ -9,8 +9,8 @@ typedef struct
 	uint8_t* buffer;
 	int8_t   front;
 	int8_t   rear;
-	uint8_t  size;
-}Queue_t;
+	int8_t  size;
+}BQueue_t;
 
 typedef enum
 {
@@ -20,9 +20,9 @@ typedef enum
 	Queue_EN_InvalidPointer
 }Queue_Error_t;
 
-Queue_Error_t	Queue_Init		(Queue_t* queue);
-Queue_Error_t	EnQueue			(Queue_t* queue, uint8_t  Data);
-Queue_Error_t	DeQueue			(Queue_t* queue, uint8_t* Data);
+Queue_Error_t	Queue_Init		(BQueue_t* queue);
+Queue_Error_t	EnQueue			(BQueue_t* queue, uint8_t  Data);
+Queue_Error_t	DeQueue			(BQueue_t* queue, uint8_t* Data);
 
 
 

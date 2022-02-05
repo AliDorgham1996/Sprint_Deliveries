@@ -4,7 +4,7 @@
 
 APP\I2C_Driver.c
 
-APP\I2C_EEPROM.c
+APP\I2C_EEPROMTask.c
 
 APP\SPI_UART.c
 

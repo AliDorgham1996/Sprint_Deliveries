@@ -3,8 +3,8 @@
 #include <string.h>
 #include "../Library/System_Delays/Delays.h"
 
-_S I2C_EEPROM_Error_t		I2C_EEPROM_Write	(uint16_t Address, uint8_t Data);
-_S I2C_EEPROM_Error_t		I2C_EEPROM_Write	(uint16_t Address, uint8_t Data)
+I2C_EEPROM_Error_t		I2C_EEPROM_Write	(uint16_t Address, uint8_t Data);
+I2C_EEPROM_Error_t		I2C_EEPROM_Write	(uint16_t Address, uint8_t Data)
 {
 	I2C_EEPROM_Error_t return_value = I2C_EEPROM_valid;
 	return_value |= I2C_Start();
@@ -18,30 +18,25 @@ _S I2C_EEPROM_Error_t		I2C_EEPROM_Write	(uint16_t Address, uint8_t Data)
 void		I2C_EEPROM_init		(void)
 {
 	I2C_init(I2C_EEPROM_SPEED);
-}
-void	I2C_EEPROM_Reset	(void)
-{
-	Dio_GroupMode(DIO_EN_Port_C, 0x03, DIO_EN_M_Output);
-	Dio_GroupWrite(DIO_EN_Port_C, 0x03, DIO_EN_W_High);
-	for(uint8_t index = 0; index < 9; index++)
-	{
-		Dio_ChannelWrite(DIO_EN_Channel_C_0, DIO_EN_W_High);
-		Delay_Us(5);
-		Dio_ChannelWrite(DIO_EN_Channel_C_0, DIO_EN_W_Low);
-		Delay_Us(5);
-	}
-	I2C_Start();
-	Dio_GroupMode(DIO_EN_Port_C, 0x03, DIO_EN_M_Input);
-	I2C_Stop();
+	Delay_Ms(I2C_EEPROM_DELAY_MS);
 }
 I2C_EEPROM_Error_t		I2C_EEPROM_Update	(uint16_t Address, uint8_t  Data)
 {
 	I2C_EEPROM_Error_t return_value = I2C_EEPROM_valid;
 	uint8_t LocalData ;
-	I2C_EEPROM_Read(Address, &LocalData);
-	if(LocalData != Data)
+	return_value = I2C_EEPROM_Read(Address, &LocalData);
+	if(return_value == I2C_EEPROM_valid)
 	{
-		return_value |= I2C_EEPROM_Write(Address, Data);
+		if(LocalData != Data)
+		{
+			Delay_Ms(6);
+			return_value = I2C_EEPROM_Write(Address, Data);
+		}
+		else{/*MISRA C*/}
+	}
+	else
+	{
+		return_value = I2C_EEPROM_InvalidRead;
 	}
 	return return_value;
 }
@@ -104,6 +99,7 @@ I2C_EEPROM_Error_t	I2C_EEPROM_WritePage	(uint16_t Address, uint8_t* Data)
 		return_value |= I2C_Write((uint8_t)Address, I2C_MT_DATA_ACK);
 		for(index = 0; index < size; index++)
 		{
+			//return_value |= I2C_EEPROM_Update(Data[index], I2C_MT_DATA_ACK);
 			return_value |= I2C_Write(Data[index], I2C_MT_DATA_ACK);
 		}
 		I2C_Stop();

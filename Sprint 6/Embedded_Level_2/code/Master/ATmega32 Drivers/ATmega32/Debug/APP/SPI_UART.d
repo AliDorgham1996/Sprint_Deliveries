@@ -15,7 +15,8 @@ APP/SPI_UART.d APP/SPI_UART.o: ../APP/SPI_UART.c \
  ../APP/../Library/../Library/../Library/Constants.h \
  ../APP/../Library/../Library/Constants.h ../APP/../MCAL/SPI/SPI.h \
  ../Library/../MCAL/SPI/SPI_Cfg.h ../Library/../Library/Constants.h \
- ../Library/../Library/Types_Defs.h ../APP/../MCAL/UART/UART.h \
+ ../Library/../Library/Types_Defs.h \
+ ../Library/../Library/Configurations.h ../APP/../MCAL/UART/UART.h \
  ../Library/../MCAL/UART/UART_Cfg.h \
  ../Library/../Services/Circular_Buffer/Circular_Buffer.h \
  ../APP/../Library/System_Delays/Delays.h \
@@ -66,6 +67,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../Library/../Library/Constants.h:
 
 ../Library/../Library/Types_Defs.h:
+
+../Library/../Library/Configurations.h:
 
 ../APP/../MCAL/UART/UART.h:
 

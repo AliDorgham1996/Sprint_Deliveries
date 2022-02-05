@@ -1,7 +1,7 @@
 #include "../Services/Circular_Buffer/Circular_Buffer.h"
 #include <stdlib.h>
 
-Queue_Error_t	Queue_Init		(Queue_t* queue)
+Queue_Error_t	Queue_Init		(BQueue_t* queue)
 {
 	Queue_Error_t return_value = Queue_EN_valid;
 	if(queue != NULL)
@@ -16,7 +16,7 @@ Queue_Error_t	Queue_Init		(Queue_t* queue)
 	}
 	return return_value;
 }
-Queue_Error_t	EnQueue			(Queue_t* queue, uint8_t  Data)
+Queue_Error_t	EnQueue			(BQueue_t* queue, uint8_t  Data)
 {
 	Queue_Error_t return_value = Queue_EN_valid;
 	
@@ -43,7 +43,7 @@ Queue_Error_t	EnQueue			(Queue_t* queue, uint8_t  Data)
 	} 	
 	return return_value;
 }
-Queue_Error_t	DeQueue			(Queue_t* queue, uint8_t* Data)
+Queue_Error_t	DeQueue			(BQueue_t* queue, uint8_t* Data)
 {
 	Queue_Error_t return_value = Queue_EN_valid;
 	

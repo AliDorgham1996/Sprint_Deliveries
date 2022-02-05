@@ -43,7 +43,7 @@ typedef struct
 	uint8_t gnrl_call_recog_enble  :1;
 }_V TWAR_t;
 
-typedef struct 
+typedef struct
 {
 	uint8_t    BitRate;
 	TWSR_t     Status;
@@ -99,7 +99,7 @@ typedef struct
 	uint8_t    :8;//7
 	uint8_t    :8;//8
 	uint8_t    :8;//9
-	uint8_t    :8;//50		
+	uint8_t    :8;//50
 	TWCR_t     Control;
 }I2C_CFG_t;
 

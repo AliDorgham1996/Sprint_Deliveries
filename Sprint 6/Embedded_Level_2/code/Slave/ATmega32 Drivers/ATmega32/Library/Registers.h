@@ -5,9 +5,11 @@
 #include <stdint.h>				
 
 #include "../Library/Types_Defs.h"
+#include "../Library/Constants.h"
 
 //SREG
 #define STATUS  sreg_(SREGPRT_t)
+
 
 #define IO_Ports        0x04
 //D
